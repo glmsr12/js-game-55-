@@ -10,6 +10,7 @@ function jump() {
   }, 500);
 }
 
+//game functions & win and lose alert
 const checkLost = setInterval(function () {
   const characterTop = parseInt(
     window.getComputedStyle(character).getPropertyValue('top')
@@ -18,4 +19,9 @@ const checkLost = setInterval(function () {
   const blockLeft = parseInt(
     window.getComputedStyle(block).getPropertyValue('left')
   );
+  if (blockLeft < 20 && blockLeft > 0 && characterTop >= 240) {
+    block.style.animation = '';
+    block.style.display = '';
+    alert('Oops! You Lose!');
+  }
 }, 10);
